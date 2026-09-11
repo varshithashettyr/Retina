@@ -1,0 +1,2488 @@
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  min-width: 0;
+
+  margin: 0;
+  padding: 0;
+
+  overflow-x: hidden;
+
+  font-family:
+    "Plus Jakarta Sans",
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  background: #ffffff;
+
+  color: #1a2340;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+
+  margin: 0;
+  padding: 0;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   MAIN PAGE
+========================================================= */
+
+.retina-page {
+  width: 100%;
+  min-height: 100vh;
+
+  background: var(--white);
+
+  color: var(--dark);
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   TOP HEADER
+========================================================= */
+
+.top-header {
+  width: 100%;
+  height: 95px;
+
+  padding:
+    0 32px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  background: #ffffff;
+
+  border-bottom:
+    1px solid #e5e7eb;
+
+  position: relative;
+
+  z-index: 500;
+}
+
+
+/* =========================================================
+   LOGO SECTION
+========================================================= */
+
+.logo-section {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   LOGO MARK
+========================================================= */
+
+.logo-mark {
+  width: 82px;
+  height: 70px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+.logo-eye {
+  width: 70px;
+  height: 43px;
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: var(--red);
+
+  border-radius:
+    75% 18% 75% 18%;
+
+  transform:
+    rotate(-18deg);
+}
+
+.logo-pupil {
+  width: 25px;
+  height: 25px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  position: relative;
+}
+
+.logo-pupil::after {
+  content: "";
+
+  position: absolute;
+
+  width: 11px;
+  height: 11px;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: var(--red);
+}
+
+
+/* =========================================================
+   LOGO TEXT
+========================================================= */
+
+.logo-text {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.logo-title {
+  color: #982522;
+
+  font-size: 25px;
+
+  line-height: 1.1;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+.logo-tagline {
+  color: var(--blue);
+
+  font-size: 24px;
+
+  line-height: 1.1;
+
+  font-weight: 500;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   HEADER ACTIONS
+========================================================= */
+
+.header-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-button {
+  height: 58px;
+
+  padding:
+    0 22px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  background: transparent;
+
+  border: none;
+
+  color: #1a2340;
+
+  font-size: 19px;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  transition:
+    color 0.2s ease;
+}
+
+.search-button:hover {
+  color: var(--red);
+}
+
+
+/* =========================================================
+   HEADER APPOINTMENT
+========================================================= */
+
+.header-appointment {
+  height: 62px;
+
+  padding:
+    0 25px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  border: none;
+
+  border-radius: 17px;
+
+  background: var(--red);
+
+  color: #ffffff;
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  box-shadow:
+    0 4px 15px
+    rgba(165, 28, 48, 0.20);
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.header-appointment:hover {
+  background: #8f1729;
+}
+
+
+/* =========================================================
+   HEADER PHONE
+========================================================= */
+
+.header-phone {
+  height: 62px;
+
+  padding:
+    0 25px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  border-radius: 17px;
+
+  background: #28588d;
+
+  color: #ffffff;
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  transition:
+    background 0.2s ease;
+}
+
+.header-phone:hover {
+  background: #214b79;
+}
+
+
+/* =========================================================
+   MAIN NAVIGATION
+========================================================= */
+
+.main-navigation {
+  width: 100%;
+
+  height: 72px;
+
+  padding:
+    0 43px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  background: #ffffff;
+
+  border-bottom:
+    1px solid #e5e7eb;
+
+  /*
+     IMPORTANT:
+     This is the containing block for the
+     Patient Education mega menu.
+  */
+
+  position: relative;
+
+  z-index: 400;
+}
+
+
+/* =========================================================
+   NAV ITEM
+========================================================= */
+
+.nav-item {
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  position: relative;
+}
+
+
+/* =========================================================
+   NAV BUTTON
+========================================================= */
+
+.nav-button {
+  height: 100%;
+
+  padding: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  position: relative;
+
+  background: transparent;
+
+  border: none;
+
+  color: #111827;
+
+  font-size: 19px;
+
+  line-height: 1;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  transition:
+    color 0.2s ease;
+}
+
+.nav-button:hover {
+  color: var(--red);
+}
+
+.nav-button svg {
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   NORMAL DROPDOWN
+========================================================= */
+
+.normal-dropdown {
+  position: absolute;
+
+  top: 72px;
+
+  left: 0;
+
+  min-width: 245px;
+
+  padding:
+    8px 0;
+
+  background: #ffffff;
+
+  border:
+    1px solid #e5e7eb;
+
+  border-radius:
+    0 0 12px 12px;
+
+  box-shadow:
+    0 12px 30px
+    rgba(26, 35, 64, 0.15);
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transform:
+    translateY(8px);
+
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease,
+    transform 0.2s ease;
+
+  z-index: 800;
+}
+
+
+/* SHOW NORMAL DROPDOWN */
+
+.nav-item:hover .normal-dropdown {
+  opacity: 1;
+
+  visibility: visible;
+
+  transform:
+    translateY(0);
+}
+
+
+/* NORMAL DROPDOWN LINKS */
+
+.normal-dropdown a {
+  display: block;
+
+  padding:
+    13px 20px;
+
+  color: var(--dark);
+
+  font-size: 15px;
+
+  line-height: 1.3;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.normal-dropdown a:hover {
+  background: #f5f8fc;
+
+  color: var(--red);
+}
+
+
+/* =========================================================
+   PATIENT EDUCATION NAV ITEM
+========================================================= */
+
+.patient-education {
+  position: static;
+}
+
+.patient-education-button {
+  position: relative;
+  color: #111827;
+}
+
+.patient-education:hover .patient-education-button {
+  color: #b85a54;
+}
+
+.patient-education:hover .patient-education-button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 9px;
+  height: 2px;
+  background: #b85a54;
+}
+
+/* =========================================================
+   PATIENT EDUCATION MEGA MENU
+   ========================================================= */
+
+.education-mega-menu {
+  position: absolute;
+  top: 72px;
+  left: 50%;
+
+  width: min(1380px, 76vw);
+  max-width: min(1380px, 76vw);
+  height: auto;
+  min-height: 0;
+
+  margin: 0;
+  padding: 18px 20px 18px;
+
+  transform: translateX(-50%) translateY(7px);
+
+  background: #f4f5f7;
+  border-radius: 0 0 18px 18px;
+  box-shadow: 0 10px 28px rgba(26, 35, 64, 0.16);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  overflow: hidden;
+  z-index: 9999;
+
+  transition:
+    opacity 0.18s ease,
+    visibility 0.18s ease,
+    transform 0.18s ease;
+}
+
+.patient-education:hover .education-mega-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* =========================================================
+   MEGA MENU HEADER
+========================================================= */
+
+.education-header {
+  width: 100%;
+  margin: 0;
+  padding: 0 0 13px 0;
+}
+
+.education-eyebrow {
+  margin: 0 0 4px 0;
+  color: var(--red);
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.education-header h2 {
+  margin: 0 0 3px 0;
+  color: var(--dark);
+  font-size: 21px;
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+.education-header p {
+  margin: 0;
+  color: var(--body);
+  font-size: 12px;
+  line-height: 1.3;
+  font-weight: 500;
+}
+
+/* =========================================================
+   TWO COLUMNS
+========================================================= */
+
+.education-columns {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 12px;
+}
+
+/* =========================================================
+   WHITE CARDS
+========================================================= */
+
+.education-card {
+  width: 100%;
+  height: 270px;
+  padding: 13px;
+  background: #ffffff;
+  border-radius: 17px;
+  overflow: hidden;
+}
+
+.education-card h3 {
+  margin: 0 0 6px 0;
+  color: var(--red);
+  font-size: 15px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+/* =========================================================
+   TREATMENTS
+========================================================= */
+
+.treatment-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.treatment-item {
+  width: 100%;
+  height: 36px;
+  min-height: 36px;
+  padding: 0 8px;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  border-radius: 12px;
+  background: transparent;
+  color: var(--dark);
+
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.treatment-item svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  color: #b5bdc7;
+}
+
+.treatment-item.active,
+.treatment-item:hover {
+  background: #eaf3ff;
+  color: var(--blue);
+}
+
+.treatment-item.active svg,
+.treatment-item:hover svg {
+  color: #8bb9e9;
+}
+
+/* =========================================================
+   BLOGS
+========================================================= */
+
+.blog-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.blog-item {
+  width: 100%;
+  height: 36px;
+  min-height: 36px;
+  padding: 0 8px;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  color: var(--dark);
+  font-size: 12px;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+.blog-item svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  color: #b5bdc7;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 5px;
+  padding-left: 8px;
+
+  color: var(--red);
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   HERO SECTION
+========================================================= */
+
+.hero-section {
+  width: 100%;
+
+  height: 570px;
+
+  position: relative;
+
+  overflow: visible;
+
+  background:
+    #d8edff;
+}
+
+
+/* =========================================================
+   HERO IMAGE
+========================================================= */
+
+.hero-image {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position:
+    right center;
+}
+
+
+/* =========================================================
+   HERO OVERLAY
+========================================================= */
+
+.hero-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(216, 237, 255, 0.97) 0%,
+      rgba(216, 237, 255, 0.92) 17%,
+      rgba(216, 237, 255, 0.72) 36%,
+      rgba(216, 237, 255, 0.32) 55%,
+      rgba(216, 237, 255, 0.05) 72%,
+      rgba(216, 237, 255, 0) 100%
+    );
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.hero-content {
+  width: 58%;
+
+  max-width: 850px;
+
+  padding:
+    145px 0 0 54px;
+
+  position: relative;
+
+  z-index: 10;
+}
+
+
+/* =========================================================
+   HERO TITLE
+========================================================= */
+
+.hero-content h1 {
+  margin:
+    0 0 17px 0;
+
+  color: var(--dark);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(44px, 4vw, 58px);
+
+  line-height: 1.08;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   HERO SUBTITLE
+========================================================= */
+
+.hero-content h2 {
+  margin:
+    0 0 14px 0;
+
+  color: var(--red);
+
+  font-size: 25px;
+
+  line-height: 1.25;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+========================================================= */
+
+.hero-description {
+  max-width: 720px;
+
+  margin: 0;
+
+  padding-left: 17px;
+
+  border-left:
+    3px solid var(--red);
+
+  color: var(--body);
+
+  font-size: 19px;
+
+  line-height: 1.6;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+========================================================= */
+
+.hero-buttons {
+  margin-top: 30px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+  flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   HERO PRIMARY BUTTON
+========================================================= */
+
+.hero-primary-button {
+  height: 64px;
+
+  padding:
+    0 27px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 11px;
+
+  border:
+    2px solid var(--dark);
+
+  border-radius: 13px;
+
+  background: var(--dark);
+
+  color: #ffffff;
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  transition:
+    background 0.2s ease;
+}
+
+.hero-primary-button:hover {
+  background: #11182c;
+}
+
+
+/* =========================================================
+   HERO SECONDARY BUTTON
+========================================================= */
+
+.hero-secondary-button {
+  height: 64px;
+
+  padding:
+    0 27px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 11px;
+
+  border:
+    2px solid #d4d4d4;
+
+  border-radius: 13px;
+
+  background: #ffffff;
+
+  color: var(--dark);
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  transition:
+    background 0.2s ease;
+}
+
+.hero-secondary-button:hover {
+  background: #f5f5f5;
+}
+
+
+/* =========================================================
+   QUICK ACTION BAR
+========================================================= */
+
+.quick-actions {
+  position: absolute;
+
+  z-index: 30;
+
+  left: 5.4%;
+
+  right: 5.4%;
+
+  bottom: -30px;
+
+  min-height: 80px;
+
+  display: grid;
+
+  grid-template-columns:
+    1.05fr
+    1.25fr
+    0.85fr
+    0.85fr
+    1.45fr;
+
+  background: #ffffff;
+
+  border:
+    1px solid #e5e7eb;
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 8px 30px
+    rgba(26, 35, 64, 0.16);
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   QUICK ACTION ITEM
+========================================================= */
+
+.quick-action {
+  min-width: 0;
+
+  min-height: 80px;
+
+  padding:
+    0 17px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  background: #ffffff;
+
+  border: none;
+
+  border-right:
+    1px solid #e5e7eb;
+
+  color: var(--dark);
+
+  transition:
+    background 0.2s ease;
+}
+
+.quick-action:hover {
+  background: #f7f9fc;
+}
+
+
+/* =========================================================
+   QUICK ICON
+========================================================= */
+
+.quick-icon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  color: var(--blue);
+}
+
+
+/* =========================================================
+   QUICK TITLE
+========================================================= */
+
+.quick-title {
+  min-width: 0;
+
+  color: var(--dark);
+
+  font-size: 17px;
+
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   QUICK PLUS
+========================================================= */
+
+.quick-plus {
+  margin-left: auto;
+
+  flex-shrink: 0;
+
+  color: #9ca3af;
+}
+
+
+/* =========================================================
+   QUICK APPOINTMENT
+========================================================= */
+
+.quick-appointment {
+  min-height: 80px;
+
+  padding:
+    0 22px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 11px;
+
+  border: none;
+
+  background: #28588d;
+
+  color: #ffffff;
+
+  font-size: 18px;
+
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  transition:
+    background 0.2s ease;
+}
+
+.quick-appointment:hover {
+  background: #214b79;
+}
+
+
+/* =========================================================
+   STATISTICS
+========================================================= */
+
+.stats-section {
+  width: 100%;
+
+  min-height: 190px;
+
+  padding:
+    70px 5% 35px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  background: var(--red);
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   STAT ITEM
+========================================================= */
+
+.stat-item {
+  min-height: 120px;
+
+  padding:
+    10px 20px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  border-right:
+    1px solid
+    rgba(255, 255, 255, 0.35);
+}
+
+.stat-item:last-child {
+  border-right: none;
+}
+
+
+/* =========================================================
+   STAT NUMBER
+========================================================= */
+
+.stat-number {
+  margin-bottom: 10px;
+
+  color: #ffffff;
+
+  font-size: 47px;
+
+  line-height: 1;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   STAT TEXT
+========================================================= */
+
+.stat-text {
+  max-width: 220px;
+
+  color: #ffffff;
+
+  font-size: 16px;
+
+  line-height: 1.35;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   DESKTOP — KEEP MENU EXACT
+========================================================= */
+
+@media (min-width: 1400px) {
+
+  .education-mega-menu {
+    width: 1380px;
+
+    height: auto;
+  }
+
+}
+
+
+/* =========================================================
+   MEDIUM DESKTOP
+========================================================= */
+
+@media (max-width: 1399px) {
+
+  .top-header {
+    padding:
+      0 24px;
+  }
+
+  .logo-title {
+    font-size: 21px;
+  }
+
+  .logo-tagline {
+    font-size: 20px;
+  }
+
+  .header-appointment,
+  .header-phone {
+    padding:
+      0 18px;
+
+    font-size: 16px;
+  }
+
+  .main-navigation {
+    padding:
+      0 28px;
+  }
+
+  .nav-button {
+    font-size: 17px;
+  }
+
+  .education-mega-menu {
+    width:
+      calc(100vw - 36px);
+
+    height: auto;
+  }
+
+  .education-header h2 {
+    font-size: 30px;
+  }
+
+  .education-header p {
+    font-size: 18px;
+  }
+
+  .education-card h3 {
+    font-size: 20px;
+  }
+
+  .treatment-item,
+  .blog-item {
+    font-size: 17px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .top-header {
+    height: auto;
+
+    min-height: 90px;
+
+    padding:
+      15px 20px;
+
+    gap: 15px;
+  }
+
+  .logo-title {
+    font-size: 19px;
+  }
+
+  .logo-tagline {
+    font-size: 18px;
+  }
+
+  .header-actions {
+    gap: 6px;
+  }
+
+  .search-button {
+    padding:
+      0 10px;
+
+    font-size: 16px;
+  }
+
+  .header-appointment,
+  .header-phone {
+    height: 52px;
+
+    padding:
+      0 14px;
+
+    font-size: 14px;
+  }
+
+  .main-navigation {
+    height: 65px;
+
+    padding:
+      0 20px;
+
+    overflow-x: auto;
+
+    justify-content: flex-start;
+
+    gap: 30px;
+  }
+
+  .nav-item {
+    flex-shrink: 0;
+  }
+
+  .nav-button {
+    font-size: 15px;
+  }
+
+  .education-mega-menu {
+    top: 65px;
+
+    width:
+      calc(100vw - 30px);
+
+    height: auto;
+
+    min-height: 500px;
+
+    max-height:
+      calc(100vh - 75px);
+
+    overflow-y: auto;
+
+    padding: 24px;
+  }
+
+  .education-columns {
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+  .education-card {
+    height: 345px;
+  }
+
+  .hero-section {
+    height: 500px;
+  }
+
+  .hero-content {
+    width: 65%;
+
+    padding:
+      110px 0 0 35px;
+  }
+
+  .quick-actions {
+    left: 3%;
+
+    right: 3%;
+
+    grid-template-columns:
+      1fr 1.2fr 0.8fr 0.8fr 1.4fr;
+  }
+
+  .quick-title {
+    font-size: 14px;
+  }
+
+  .quick-appointment {
+    font-size: 15px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .top-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .header-actions {
+    width: 100%;
+
+    justify-content: flex-end;
+  }
+
+  .main-navigation {
+    gap: 24px;
+  }
+
+  /*
+     On mobile, allow the menu to fit the screen.
+  */
+
+  .education-mega-menu {
+    width:
+      calc(100vw - 20px);
+
+    max-width:
+      calc(100vw - 20px);
+
+    height: auto;
+
+    max-height:
+      calc(100vh - 70px);
+
+    padding: 20px;
+
+    border-radius:
+      0 0 18px 18px;
+
+    overflow-y: auto;
+  }
+
+  .education-columns {
+    grid-template-columns:
+      1fr;
+
+    gap: 14px;
+  }
+
+  .education-card {
+    height: auto;
+
+    min-height: 300px;
+  }
+
+  .education-header {
+    padding-bottom: 18px;
+  }
+
+  .education-header h2 {
+    font-size: 27px;
+  }
+
+  .education-header p {
+    font-size: 16px;
+  }
+
+  .hero-section {
+    height: 620px;
+  }
+
+  .hero-content {
+    width: 90%;
+
+    padding:
+      80px 20px 0;
+  }
+
+  .hero-content h1 {
+    font-size: 42px;
+  }
+
+  .hero-content h2 {
+    font-size: 21px;
+  }
+
+  .hero-description {
+    font-size: 17px;
+  }
+
+  .quick-actions {
+    position: relative;
+
+    left: auto;
+
+    right: auto;
+
+    bottom: auto;
+
+    margin:
+      -30px 15px 30px;
+
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+  .quick-appointment {
+    grid-column:
+      span 2;
+  }
+
+  .stats-section {
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .logo-title {
+    font-size: 17px;
+  }
+
+  .logo-tagline {
+    font-size: 15px;
+  }
+
+  .logo-mark {
+    width: 60px;
+  }
+
+  .logo-eye {
+    width: 52px;
+    height: 33px;
+  }
+
+  .logo-pupil {
+    width: 19px;
+    height: 19px;
+  }
+
+  .header-actions {
+    flex-wrap: wrap;
+  }
+
+  .header-appointment,
+  .header-phone {
+    font-size: 12px;
+
+    padding:
+      0 10px;
+  }
+
+  .education-mega-menu {
+    padding: 16px;
+  }
+
+  .education-eyebrow {
+    font-size: 12px;
+  }
+
+  .education-header h2 {
+    font-size: 24px;
+  }
+
+  .education-header p {
+    font-size: 15px;
+  }
+
+  .education-card h3 {
+    font-size: 18px;
+  }
+
+  .treatment-item,
+  .blog-item {
+    font-size: 15px;
+  }
+
+  .hero-content h1 {
+    font-size: 36px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .hero-primary-button,
+  .hero-secondary-button {
+    width: 100%;
+  }
+
+  .stats-section {
+    grid-template-columns:
+      1fr;
+  }
+
+  .stat-item {
+    border-right: none;
+
+    border-bottom:
+      1px solid
+      rgba(255, 255, 255, 0.35);
+  }
+
+  .stat-item:last-child {
+    border-bottom: none;
+  }
+}
+
+
+/* =========================================================
+   PATIENT EDUCATION RESPONSIVE SIZING
+========================================================= */
+
+@media (max-width: 1200px) {
+  .education-mega-menu {
+    width: calc(100vw - 40px);
+    max-width: calc(100vw - 40px);
+    height: auto;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 1000px) {
+  .education-mega-menu {
+    top: 65px;
+    width: calc(100vw - 30px);
+    max-width: calc(100vw - 30px);
+    height: auto;
+    max-height: calc(100vh - 75px);
+    padding: 20px;
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .education-mega-menu {
+    width: calc(100vw - 20px);
+    max-width: calc(100vw - 20px);
+    height: auto;
+    max-height: calc(100vh - 70px);
+    padding: 18px;
+  }
+
+  .education-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .education-card {
+    height: auto;
+    min-height: 260px;
+  }
+}
+
+
+/* =========================================================
+   PATIENT EDUCATION - FINAL FIX
+   ---------------------------------------------------------
+   The mega menu should size itself to its actual content.
+   A fixed desktop height was creating the large lower area
+   and making the panel visually run into the quick-action bar.
+========================================================= */
+
+@media (min-width: 1400px) {
+
+  .patient-education {
+    position: static;
+  }
+
+  .education-mega-menu {
+    top: 72px;
+
+    width: 1380px;
+    max-width: 1380px;
+
+    height: auto;
+    min-height: 0;
+
+    box-sizing: border-box;
+
+    padding: 18px 20px 18px;
+
+    overflow: hidden;
+
+    border-radius: 0 0 18px 18px;
+
+    transform:
+      translateX(-50%)
+      translateY(7px);
+  }
+
+  .patient-education:hover .education-mega-menu {
+    transform:
+      translateX(-50%)
+      translateY(0);
+  }
+
+  /* Keep the white cards at their existing reference size. */
+  .education-card {
+    height: 270px;
+    box-sizing: border-box;
+  }
+
+  /* Small controlled space below the cards */
+  .education-columns {
+    margin-bottom: 0;
+  }
+
+}
+
+
+/* =========================================================
+   MEDIUM DESKTOP
+========================================================= */
+
+@media (min-width: 1001px) and (max-width: 1399px) {
+
+  .education-mega-menu {
+    height: auto;
+    min-height: 0;
+    box-sizing: border-box;
+  }
+
+}
+
+
+/* =========================================================
+   DO NOT LET THE LARGE-DESKTOP RULES REINTRODUCE
+   THE OLD EXTRA HEIGHT
+========================================================= */
+
+@media (min-width: 1400px) {
+
+  .education-mega-menu {
+    min-height: 0 !important;
+    height: auto !important;
+    box-sizing: border-box !important;
+  }
+
+}
+
+/* =========================================================
+   EYE CONDITIONS WE TREAT
+   PROGRESSIVE HOVER + CLICK MEGA MENU
+========================================================= */
+
+.eye-condition-nav-item {
+  position: static !important;
+
+  height: 100% !important;
+
+  display: flex !important;
+  align-items: center !important;
+
+  flex-shrink: 0 !important;
+}
+
+
+/* =========================================================
+   NAV BUTTON
+========================================================= */
+
+.eye-condition-nav-button {
+  appearance: none !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  gap: 7px !important;
+
+  height: 100% !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  border: 0 !important;
+  outline: 0 !important;
+
+  background: transparent !important;
+
+  color: #111827 !important;
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif !important;
+
+  font-size: 18px !important;
+
+  font-weight: 700 !important;
+
+  line-height: 1 !important;
+
+  white-space: nowrap !important;
+
+  cursor: pointer !important;
+}
+
+.eye-condition-nav-button:hover,
+.eye-condition-nav-button-active {
+  color: #a51c30 !important;
+}
+
+.eye-condition-nav-chevron {
+  flex-shrink: 0 !important;
+
+  width: 17px !important;
+  height: 17px !important;
+
+  transition:
+    transform 0.2s ease !important;
+}
+
+.eye-condition-nav-chevron-open {
+  transform: rotate(180deg) !important;
+}
+
+
+/* =========================================================
+   PROGRESSIVE MEGA MENU
+
+   Level 1 = one card
+   Level 2 = two cards
+   Level 3 = three cards
+
+   The menu grows only when the user explores it.
+========================================================= */
+
+.eye-condition-mega-menu {
+  position: absolute !important;
+
+  top: 72px !important;
+
+  left: 50% !important;
+
+  box-sizing: border-box !important;
+
+  padding: 14px !important;
+
+  margin: 0 !important;
+
+  background: #f4f5f7 !important;
+
+  border-radius:
+    0 0 18px 18px !important;
+
+  box-shadow:
+    0 10px 28px rgba(
+      26,
+      35,
+      64,
+      0.16
+    ) !important;
+
+  opacity: 0 !important;
+
+  visibility: hidden !important;
+
+  pointer-events: none !important;
+
+  transform:
+    translateX(-50%)
+    translateY(6px) !important;
+
+  transition:
+    opacity 0.18s ease,
+    visibility 0.18s ease,
+    transform 0.18s ease,
+    width 0.22s ease !important;
+
+  z-index: 9999 !important;
+}
+
+
+/* =========================================================
+   WIDTH OF EACH LEVEL
+========================================================= */
+
+.eye-condition-mega-menu-level-1 {
+  width: 300px !important;
+
+  max-width:
+    calc(100vw - 40px) !important;
+}
+
+.eye-condition-mega-menu-level-2 {
+  width: 640px !important;
+
+  max-width:
+    calc(100vw - 40px) !important;
+}
+
+.eye-condition-mega-menu-level-3 {
+  width: 980px !important;
+
+  max-width:
+    calc(100vw - 40px) !important;
+}
+
+
+/* =========================================================
+   OPEN
+========================================================= */
+
+.eye-condition-mega-menu-open {
+  opacity: 1 !important;
+
+  visibility: visible !important;
+
+  pointer-events: auto !important;
+
+  transform:
+    translateX(-50%)
+    translateY(0) !important;
+}
+
+
+/* =========================================================
+   COLUMNS
+
+   IMPORTANT:
+   Columns are created only when their level is visible.
+========================================================= */
+
+.eye-condition-menu-inner {
+  width: 100% !important;
+
+  height: auto !important;
+
+  min-height: 0 !important;
+
+  margin: 0 !important;
+
+  padding: 0 !important;
+
+  display: grid !important;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1.05fr)
+    minmax(0, 1.35fr) !important;
+
+  gap: 8px !important;
+
+  align-items: start !important;
+
+  box-sizing: border-box !important;
+}
+
+
+/* When only level 1 exists */
+.eye-condition-mega-menu-level-1
+.eye-condition-menu-inner {
+  grid-template-columns: 1fr !important;
+}
+
+
+/* When level 2 exists */
+.eye-condition-mega-menu-level-2
+.eye-condition-menu-inner {
+  grid-template-columns:
+    minmax(0, 0.85fr)
+    minmax(0, 1fr) !important;
+}
+
+
+/* When level 3 exists */
+.eye-condition-mega-menu-level-3
+.eye-condition-menu-inner {
+  grid-template-columns:
+    minmax(0, 0.80fr)
+    minmax(0, 0.90fr)
+    minmax(0, 1.20fr) !important;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.eye-condition-menu-card {
+  width: 100% !important;
+
+  min-width: 0 !important;
+
+  height: auto !important;
+
+  min-height: 0 !important;
+
+  max-height: none !important;
+
+  margin: 0 !important;
+
+  padding: 12px !important;
+
+  box-sizing: border-box !important;
+
+  background: #ffffff !important;
+
+  border-radius: 15px !important;
+
+  overflow: hidden !important;
+}
+
+
+/* =========================================================
+   SMALL ENTRY ANIMATION
+========================================================= */
+
+.eye-condition-enter {
+  animation:
+    eyeConditionSlideIn
+    0.18s ease both !important;
+}
+
+@keyframes eyeConditionSlideIn {
+  from {
+    opacity: 0;
+
+    transform:
+      translateX(-5px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateX(0);
+  }
+}
+
+
+/* =========================================================
+   HEADINGS
+========================================================= */
+
+.eye-condition-menu-heading {
+  display: block !important;
+
+  margin:
+    0 0 5px 0 !important;
+
+  padding: 0 !important;
+
+  color: #a51c30 !important;
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif !important;
+
+  font-size: 14px !important;
+
+  font-weight: 700 !important;
+
+  line-height: 1.2 !important;
+
+  letter-spacing: 0 !important;
+}
+
+
+/* =========================================================
+   ITEMS
+========================================================= */
+
+.eye-condition-items {
+  width: 100% !important;
+
+  display: flex !important;
+
+  flex-direction: column !important;
+
+  gap: 0 !important;
+
+  margin: 0 !important;
+
+  padding: 0 !important;
+}
+
+
+/* =========================================================
+   FIRST + SECOND LEVEL ITEMS
+========================================================= */
+
+.eye-condition-item {
+  width: 100% !important;
+
+  min-width: 0 !important;
+
+  height: 32px !important;
+
+  min-height: 32px !important;
+
+  max-height: 32px !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: space-between !important;
+
+  gap: 6px !important;
+
+  margin: 0 !important;
+
+  padding:
+    0 7px !important;
+
+  box-sizing: border-box !important;
+
+  border: 0 !important;
+
+  border-radius: 9px !important;
+
+  background: transparent !important;
+
+  color: #1a2340 !important;
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif !important;
+
+  font-size: 12px !important;
+
+  font-weight: 600 !important;
+
+  line-height: 1.2 !important;
+
+  text-align: left !important;
+
+  cursor: pointer !important;
+
+  overflow: hidden !important;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease !important;
+}
+
+.eye-condition-item:hover,
+.eye-condition-item.active {
+  background: #eaf3ff !important;
+
+  color: #3774be !important;
+}
+
+
+/* =========================================================
+   THIRD LEVEL ITEMS
+========================================================= */
+
+.eye-condition-specific-item {
+  width: 100% !important;
+
+  min-width: 0 !important;
+
+  min-height: 32px !important;
+
+  height: auto !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: space-between !important;
+
+  gap: 6px !important;
+
+  margin: 0 !important;
+
+  padding:
+    5px 7px !important;
+
+  box-sizing: border-box !important;
+
+  border: 0 !important;
+
+  border-radius: 9px !important;
+
+  background: transparent !important;
+
+  color: #1a2340 !important;
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif !important;
+
+  font-size: 12px !important;
+
+  font-weight: 600 !important;
+
+  line-height: 1.3 !important;
+
+  text-align: left !important;
+
+  cursor: pointer !important;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease !important;
+}
+
+.eye-condition-specific-item:hover {
+  background: #eaf3ff !important;
+
+  color: #3774be !important;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.eye-condition-treatment-info {
+  margin: 0 !important;
+
+  padding:
+    2px 7px !important;
+}
+
+.eye-condition-treatment-info p {
+  margin: 0 !important;
+
+  padding: 0 !important;
+
+  color: #4b5563 !important;
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif !important;
+
+  font-size: 12px !important;
+
+  line-height: 1.45 !important;
+}
+
+
+/* =========================================================
+   LEARN MORE
+========================================================= */
+
+.eye-condition-learn-more {
+  display: inline-flex !important;
+
+  align-items: center !important;
+
+  gap: 3px !important;
+
+  margin:
+    8px 0 0 7px !important;
+
+  padding: 0 !important;
+
+  border: 0 !important;
+
+  background: transparent !important;
+
+  color: #a51c30 !important;
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif !important;
+
+  font-size: 12px !important;
+
+  font-weight: 700 !important;
+
+  cursor: pointer !important;
+}
+
+.eye-condition-learn-more:hover {
+  color: #3774be !important;
+}
+
+
+/* =========================================================
+   MEDIUM DESKTOP
+========================================================= */
+
+@media (min-width: 1001px) and (max-width: 1399px) {
+
+  .eye-condition-mega-menu-level-1 {
+    width: 290px !important;
+  }
+
+  .eye-condition-mega-menu-level-2 {
+    width: 600px !important;
+  }
+
+  .eye-condition-mega-menu-level-3 {
+    width:
+      min(930px, calc(100vw - 36px)) !important;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .eye-condition-nav-button {
+    font-size: 21px !important;
+  }
+
+  .eye-condition-mega-menu-level-1,
+  .eye-condition-mega-menu-level-2,
+  .eye-condition-mega-menu-level-3 {
+    top: 65px !important;
+
+    width:
+      calc(100vw - 30px) !important;
+
+    max-width:
+      calc(100vw - 30px) !important;
+
+    max-height:
+      calc(100vh - 75px) !important;
+
+    overflow-y: auto !important;
+
+    padding: 14px !important;
+  }
+
+  .eye-condition-mega-menu-level-1
+  .eye-condition-menu-inner,
+  .eye-condition-mega-menu-level-2
+  .eye-condition-menu-inner,
+  .eye-condition-mega-menu-level-3
+  .eye-condition-menu-inner {
+    grid-template-columns:
+      1fr 1fr !important;
+
+    gap: 8px !important;
+  }
+
+  .eye-condition-mega-menu-level-3
+  .eye-condition-menu-card:nth-child(3) {
+    grid-column:
+      1 / -1 !important;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .eye-condition-nav-button {
+    font-size: 19px !important;
+  }
+
+  .eye-condition-mega-menu-level-1,
+  .eye-condition-mega-menu-level-2,
+  .eye-condition-mega-menu-level-3 {
+    top: 60px !important;
+
+    width:
+      calc(100vw - 20px) !important;
+
+    max-width:
+      calc(100vw - 20px) !important;
+
+    max-height:
+      calc(100vh - 70px) !important;
+
+    padding: 12px !important;
+  }
+
+  .eye-condition-mega-menu-level-1
+  .eye-condition-menu-inner,
+  .eye-condition-mega-menu-level-2
+  .eye-condition-menu-inner,
+  .eye-condition-mega-menu-level-3
+  .eye-condition-menu-inner {
+    grid-template-columns:
+      1fr !important;
+
+    gap: 8px !important;
+  }
+
+}

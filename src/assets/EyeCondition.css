@@ -1,0 +1,983 @@
+/* =========================================================
+   EYE CONDITIONS WE TREAT
+========================================================= */
+
+.eye-condition-nav-item {
+  position: static;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.eye-condition-nav-button {
+  appearance: none;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 8px;
+
+  height: 100%;
+
+  padding: 0;
+  margin: 0;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+
+  color: #111827;
+
+  font-family: "Plus Jakarta Sans", sans-serif;
+
+  font-size: 25px;
+  font-weight: 700;
+
+  line-height: 1;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+}
+
+.eye-condition-nav-button:hover,
+.eye-condition-nav-button-active {
+  color: #a51c30;
+}
+
+.eye-condition-nav-chevron {
+  flex-shrink: 0;
+
+  transition: transform 0.2s ease;
+}
+
+.eye-condition-nav-chevron-open {
+  transform: rotate(180deg);
+}
+
+
+/* =========================================================
+   MEGA MENU
+========================================================= */
+
+.eye-condition-mega-menu {
+  position: absolute;
+
+  top: 72px;
+  left: 50%;
+
+  width: 1380px;
+  max-width: calc(100vw - 40px);
+
+  box-sizing: border-box;
+
+  padding: 16px 20px;
+
+  background: #f4f5f7;
+
+  border-radius: 0 0 18px 18px;
+
+  box-shadow:
+    0 12px 32px rgba(15, 23, 42, 0.12);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform:
+    translateX(-50%)
+    translateY(6px);
+
+  transition:
+    opacity 0.18s ease,
+    visibility 0.18s ease,
+    transform 0.18s ease;
+
+  z-index: 9999;
+}
+
+
+/* OPEN */
+
+.eye-condition-mega-menu-open {
+  opacity: 1;
+
+  visibility: visible;
+
+  pointer-events: auto;
+
+  transform:
+    translateX(-50%)
+    translateY(0);
+}
+
+
+/* =========================================================
+   THREE COLUMNS
+========================================================= */
+
+.eye-condition-menu-inner {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    0.85fr
+    0.95fr
+    1.25fr;
+
+  gap: 10px;
+
+  align-items: start;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.eye-condition-menu-card {
+  width: 100%;
+
+  min-width: 0;
+
+  box-sizing: border-box;
+
+  padding: 13px;
+
+  background: #ffffff;
+
+  border-radius: 16px;
+
+  /* IMPORTANT:
+     No fixed 270px height */
+  height: auto;
+
+  min-height: 0;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.eye-condition-menu-heading {
+  margin: 0 0 8px 0;
+
+  color: #a51c30;
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  line-height: 1.3;
+
+  letter-spacing: 0.2px;
+}
+
+
+/* =========================================================
+   ITEMS
+========================================================= */
+
+.eye-condition-items {
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+
+/* =========================================================
+   FIRST + SECOND COLUMN ITEMS
+========================================================= */
+
+.eye-condition-item {
+  width: 100%;
+
+  min-height: 34px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 8px;
+
+  padding: 5px 8px;
+
+  box-sizing: border-box;
+
+  border: 0;
+
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: #1a2340;
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  line-height: 1.3;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+
+/* HOVER */
+
+.eye-condition-item:hover,
+.eye-condition-item.active {
+  background: #eaf3ff;
+
+  color: #3774be;
+}
+
+
+/* =========================================================
+   THIRD COLUMN ITEMS
+========================================================= */
+
+.eye-condition-specific-item {
+  width: 100%;
+
+  min-height: 34px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 8px;
+
+  padding: 5px 8px;
+
+  box-sizing: border-box;
+
+  border: 0;
+
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: #1a2340;
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  line-height: 1.3;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.eye-condition-specific-item:hover {
+  background: #eaf3ff;
+
+  color: #3774be;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.eye-condition-treatment-info {
+  padding: 2px 8px;
+}
+
+.eye-condition-treatment-info p {
+  margin: 0;
+
+  color: #4b5563;
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   LEARN MORE
+========================================================= */
+
+.eye-condition-learn-more {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  margin-top: 10px;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color: #a51c30;
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1400px) {
+
+  .eye-condition-mega-menu {
+    top: 72px;
+
+    width: 1380px;
+
+    max-width: 1380px;
+
+    padding: 16px 20px;
+  }
+
+}
+
+
+/* =========================================================
+   1001 - 1399
+========================================================= */
+
+@media (min-width: 1001px) and (max-width: 1399px) {
+
+  .eye-condition-mega-menu {
+    width: calc(100vw - 40px);
+
+    max-width: calc(100vw - 40px);
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .eye-condition-nav-button {
+    font-size: 21px;
+  }
+
+  .eye-condition-mega-menu {
+    top: 65px;
+
+    width: calc(100vw - 30px);
+
+    max-width: calc(100vw - 30px);
+
+    max-height: calc(100vh - 75px);
+
+    overflow-y: auto;
+
+    padding: 16px;
+  }
+
+  .eye-condition-menu-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .eye-condition-menu-card {
+    height: auto;
+  }
+
+  .eye-condition-menu-card:nth-child(3) {
+    grid-column: 1 / -1;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .eye-condition-nav-button {
+    font-size: 19px;
+  }
+
+  .eye-condition-mega-menu {
+    top: 60px;
+
+    width: calc(100vw - 20px);
+
+    max-width: calc(100vw - 20px);
+
+    max-height: calc(100vh - 70px);
+
+    padding: 14px;
+  }
+
+  .eye-condition-menu-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .eye-condition-menu-card:nth-child(3) {
+    grid-column: auto;
+  }
+
+}
+
+/* =========================================================
+   EYE CONDITIONS WE TREAT
+   FINAL FIX
+========================================================= */
+
+.eye-condition-nav-item {
+  position: static !important;
+  height: 100% !important;
+
+  display: flex !important;
+  align-items: center !important;
+
+  flex-shrink: 0 !important;
+}
+
+
+/* =========================================================
+   NAV BUTTON
+========================================================= */
+
+.eye-condition-nav-button {
+  appearance: none !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  gap: 8px !important;
+
+  height: 100% !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  border: 0 !important;
+  outline: 0 !important;
+
+  background: transparent !important;
+
+  color: #111827 !important;
+
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+
+  font-size: 25px !important;
+  font-weight: 700 !important;
+
+  line-height: 1 !important;
+
+  white-space: nowrap !important;
+
+  cursor: pointer !important;
+}
+
+.eye-condition-nav-button:hover,
+.eye-condition-nav-button-active {
+  color: #a51c30 !important;
+}
+
+.eye-condition-nav-chevron {
+  flex-shrink: 0 !important;
+
+  transition: transform 0.2s ease !important;
+}
+
+.eye-condition-nav-chevron-open {
+  transform: rotate(180deg) !important;
+}
+
+
+/* =========================================================
+   MAIN MENU
+   SAME WIDTH AS YOUR PREVIOUS SECTION
+========================================================= */
+
+.eye-condition-mega-menu {
+  position: absolute !important;
+
+  top: 72px !important;
+
+  left: 50% !important;
+
+  /* IMPORTANT */
+  width: 1420px !important;
+  max-width: calc(100vw - 40px) !important;
+
+  box-sizing: border-box !important;
+
+  padding: 16px 20px !important;
+
+  background: #f4f5f7 !important;
+
+  border-radius: 0 0 18px 18px !important;
+
+  box-shadow:
+    0 12px 32px rgba(15, 23, 42, 0.12) !important;
+
+  opacity: 0 !important;
+
+  visibility: hidden !important;
+
+  pointer-events: none !important;
+
+  transform:
+    translateX(-50%)
+    translateY(6px) !important;
+
+  transition:
+    opacity 0.18s ease,
+    visibility 0.18s ease,
+    transform 0.18s ease !important;
+
+  z-index: 9999 !important;
+}
+
+
+/* =========================================================
+   OPEN
+========================================================= */
+
+.eye-condition-mega-menu-open {
+  opacity: 1 !important;
+
+  visibility: visible !important;
+
+  pointer-events: auto !important;
+
+  transform:
+    translateX(-50%)
+    translateY(0) !important;
+}
+
+
+/* =========================================================
+   THREE COLUMNS
+========================================================= */
+
+.eye-condition-menu-inner {
+  width: 100% !important;
+
+  max-width: 100% !important;
+
+  box-sizing: border-box !important;
+
+  display: grid !important;
+
+  /*
+     Keep all 3 columns INSIDE the menu.
+     First and second are smaller.
+     Third gets enough room for long condition names.
+  */
+  grid-template-columns:
+    280px
+    360px
+    minmax(0, 1fr) !important;
+
+  gap: 12px !important;
+
+  align-items: start !important;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.eye-condition-menu-card {
+  width: 100% !important;
+
+  min-width: 0 !important;
+
+  box-sizing: border-box !important;
+
+  height: auto !important;
+
+  min-height: 0 !important;
+
+  padding: 13px !important;
+
+  background: #ffffff !important;
+
+  border-radius: 16px !important;
+
+  overflow: hidden !important;
+}
+
+
+/* =========================================================
+   HEADINGS
+========================================================= */
+
+.eye-condition-menu-heading {
+  margin: 0 0 8px 0 !important;
+
+  color: #a51c30 !important;
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif !important;
+
+  font-size: 14px !important;
+
+  font-weight: 700 !important;
+
+  line-height: 1.3 !important;
+
+  letter-spacing: 0.2px !important;
+}
+
+
+/* =========================================================
+   ITEMS
+========================================================= */
+
+.eye-condition-items {
+  width: 100% !important;
+
+  display: flex !important;
+
+  flex-direction: column !important;
+
+  gap: 2px !important;
+}
+
+
+/* =========================================================
+   FIRST + SECOND COLUMN
+========================================================= */
+
+.eye-condition-item {
+  width: 100% !important;
+
+  min-width: 0 !important;
+
+  min-height: 34px !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: space-between !important;
+
+  gap: 6px !important;
+
+  padding: 5px 8px !important;
+
+  box-sizing: border-box !important;
+
+  border: 0 !important;
+
+  border-radius: 10px !important;
+
+  background: transparent !important;
+
+  color: #1a2340 !important;
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif !important;
+
+  font-size: 12px !important;
+
+  font-weight: 600 !important;
+
+  line-height: 1.3 !important;
+
+  text-align: left !important;
+
+  cursor: pointer !important;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease !important;
+}
+
+
+/* HOVER */
+
+.eye-condition-item:hover,
+.eye-condition-item.active {
+  background: #eaf3ff !important;
+
+  color: #3774be !important;
+}
+
+
+/* =========================================================
+   THIRD COLUMN
+========================================================= */
+
+.eye-condition-specific-item {
+  width: 100% !important;
+
+  min-width: 0 !important;
+
+  min-height: 34px !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: space-between !important;
+
+  gap: 8px !important;
+
+  padding: 5px 8px !important;
+
+  box-sizing: border-box !important;
+
+  border: 0 !important;
+
+  border-radius: 10px !important;
+
+  background: transparent !important;
+
+  color: #1a2340 !important;
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif !important;
+
+  font-size: 12px !important;
+
+  font-weight: 600 !important;
+
+  line-height: 1.3 !important;
+
+  text-align: left !important;
+
+  cursor: pointer !important;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease !important;
+}
+
+.eye-condition-specific-item:hover {
+  background: #eaf3ff !important;
+
+  color: #3774be !important;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.eye-condition-treatment-info {
+  padding: 2px 8px !important;
+}
+
+.eye-condition-treatment-info p {
+  margin: 0 !important;
+
+  color: #4b5563 !important;
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif !important;
+
+  font-size: 12px !important;
+
+  line-height: 1.5 !important;
+}
+
+
+/* =========================================================
+   LEARN MORE
+========================================================= */
+
+.eye-condition-learn-more {
+  display: inline-flex !important;
+
+  align-items: center !important;
+
+  gap: 4px !important;
+
+  margin-top: 10px !important;
+
+  padding: 0 !important;
+
+  border: 0 !important;
+
+  background: transparent !important;
+
+  color: #a51c30 !important;
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif !important;
+
+  font-size: 12px !important;
+
+  font-weight: 700 !important;
+
+  cursor: pointer !important;
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 1400px) {
+
+  .eye-condition-mega-menu {
+    width: 1420px !important;
+
+    max-width: 1420px !important;
+
+    left: 50% !important;
+
+    top: 72px !important;
+  }
+
+}
+
+
+/* =========================================================
+   1001 - 1399
+========================================================= */
+
+@media (min-width: 1001px) and (max-width: 1399px) {
+
+  .eye-condition-mega-menu {
+    width: calc(100vw - 40px) !important;
+
+    max-width: calc(100vw - 40px) !important;
+  }
+
+  .eye-condition-menu-inner {
+    grid-template-columns:
+      minmax(0, 0.8fr)
+      minmax(0, 0.9fr)
+      minmax(0, 1.2fr) !important;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .eye-condition-nav-button {
+    font-size: 21px !important;
+  }
+
+  .eye-condition-mega-menu {
+    top: 65px !important;
+
+    width: calc(100vw - 30px) !important;
+
+    max-width: calc(100vw - 30px) !important;
+
+    max-height: calc(100vh - 75px) !important;
+
+    overflow-y: auto !important;
+
+    padding: 16px !important;
+  }
+
+  .eye-condition-menu-inner {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr) !important;
+  }
+
+  .eye-condition-menu-card:nth-child(3) {
+    grid-column: 1 / -1 !important;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .eye-condition-nav-button {
+    font-size: 19px !important;
+  }
+
+  .eye-condition-mega-menu {
+    top: 60px !important;
+
+    width: calc(100vw - 20px) !important;
+
+    max-width: calc(100vw - 20px) !important;
+
+    max-height: calc(100vh - 70px) !important;
+
+    padding: 14px !important;
+  }
+
+  .eye-condition-menu-inner {
+    grid-template-columns: 1fr !important;
+  }
+
+  .eye-condition-menu-card:nth-child(3) {
+    grid-column: auto !important;
+  }
+
+}
