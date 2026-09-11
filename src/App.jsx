@@ -17,6 +17,7 @@ import {
 import "./App.css";
 
 import retinaHero from "./assets/retina-hero.jpg";
+import EyeConditionMenu from "./assets/EyeCondition";
 
 
 
@@ -243,7 +244,7 @@ function App() {
 
         {/* EYE CONDITIONS WE TREAT */}
 
-        <EyeCondition />
+        <EyeConditionMenu />
 
 
 

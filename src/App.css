@@ -1844,17 +1844,21 @@ a {
 /* =========================================================
    EYE CONDITIONS WE TREAT
    PROGRESSIVE HOVER + CLICK MEGA MENU
+
+   IMPORTANT:
+   - Patient Education styles above remain unchanged.
+   - Level 1 sits directly below the nav button.
+   - Level 2 and Level 3 are centered on the viewport.
+   - Level 2 / 3 use one grouped outer panel with white cards.
 ========================================================= */
 
 .eye-condition-nav-item {
   position: relative !important;
-
   height: 100% !important;
-
   display: flex !important;
   align-items: center !important;
-
   flex-shrink: 0 !important;
+  z-index: 1000 !important;
 }
 
 
@@ -1888,14 +1892,14 @@ a {
     sans-serif !important;
 
   font-size: 18px !important;
-
   font-weight: 700 !important;
-
   line-height: 1 !important;
 
   white-space: nowrap !important;
 
   cursor: pointer !important;
+
+  transition: color 0.2s ease !important;
 }
 
 .eye-condition-nav-button:hover,
@@ -1909,8 +1913,7 @@ a {
   width: 17px !important;
   height: 17px !important;
 
-  transition:
-    transform 0.2s ease !important;
+  transition: transform 0.2s ease !important;
 }
 
 .eye-condition-nav-chevron-open {
@@ -1919,157 +1922,204 @@ a {
 
 
 /* =========================================================
-   PROGRESSIVE MEGA MENU
+   OUTER MEGA MENU
 
-   Level 1 = one card
-   Level 2 = two cards
-   Level 3 = three cards
-
-   The menu grows only when the user explores it.
+   The menu itself is the large grouped gray panel.
+   Individual white cards live inside it.
 ========================================================= */
 
 .eye-condition-mega-menu {
-  position: absolute !important;
+  position: fixed !important;
 
-  top: 72px !important;
-  left: 0 !important;
+  top: var(--eye-condition-menu-top, 0px) !important;
+  left: var(--eye-condition-menu-left, 0px) !important;
 
+  margin: 0 !important;
+  box-sizing: border-box !important;
 
-  transform: translateY(6px) !important;
+  background: #f4f5f7 !important;
+
+  border: 1px solid #e7e9ed !important;
+
+  box-shadow:
+    0 14px 35px rgba(26, 35, 64, 0.14),
+    0 4px 12px rgba(26, 35, 64, 0.06) !important;
+
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+
+  max-height: calc(100vh - var(--eye-condition-menu-top, 0px) - 16px) !important;
+
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+
+  transition:
+    opacity 0.18s ease,
+    visibility 0.18s ease,
+    transform 0.18s ease !important;
 }
 
 
 /* =========================================================
-   WIDTH OF EACH LEVEL
+   LEVEL 1
+   Directly below the Eye Conditions We Treat button.
 ========================================================= */
 
 .eye-condition-mega-menu-level-1 {
-  width: 300px !important;
+  width: 310px !important;
+  max-width: calc(100vw - 32px) !important;
 
-  max-width:
-    calc(100vw - 40px) !important;
-}
+  padding: 14px !important;
 
-.eye-condition-mega-menu-level-2 {
-  width: 640px !important;
+  border-radius: 0 0 18px 18px !important;
 
-  max-width:
-    calc(100vw - 40px) !important;
-}
-
-.eye-condition-mega-menu-level-3 {
-  width: 980px !important;
-
-  max-width:
-    calc(100vw - 40px) !important;
+  transform: translateY(7px) !important;
 }
 
 
 /* =========================================================
-   OPEN
+   LEVEL 2
+   One centered grouped panel containing two white cards.
+========================================================= */
+
+.eye-condition-mega-menu-level-2 {
+  left: 50% !important;
+
+  width: min(820px, calc(100vw - 40px)) !important;
+  max-width: calc(100vw - 40px) !important;
+
+  padding: 16px !important;
+
+  border-radius: 20px !important;
+
+  transform: translateX(-50%) translateY(7px) !important;
+}
+
+
+/* =========================================================
+   LEVEL 3
+   One wide centered grouped panel containing three cards.
+========================================================= */
+
+.eye-condition-mega-menu-level-3 {
+  left: 50% !important;
+
+  width: min(1380px, calc(100vw - 40px)) !important;
+  max-width: calc(100vw - 40px) !important;
+
+  padding: 16px !important;
+
+  border-radius: 20px !important;
+
+  transform: translateX(-50%) translateY(7px) !important;
+}
+
+
+/* =========================================================
+   OPEN STATE
 ========================================================= */
 
 .eye-condition-mega-menu-open {
   opacity: 1 !important;
-
   visibility: visible !important;
-
   pointer-events: auto !important;
+}
 
+.eye-condition-mega-menu-level-1.eye-condition-mega-menu-open {
   transform: translateY(0) !important;
+}
+
+.eye-condition-mega-menu-level-2.eye-condition-mega-menu-open,
+.eye-condition-mega-menu-level-3.eye-condition-mega-menu-open {
+  transform: translateX(-50%) translateY(0) !important;
 }
 
 
 /* =========================================================
-   COLUMNS
-
-   IMPORTANT:
-   Columns are created only when their level is visible.
+   GROUPED INNER LAYOUT
 ========================================================= */
 
 .eye-condition-menu-inner {
   width: 100% !important;
 
-  height: auto !important;
-
   min-height: 0 !important;
 
   margin: 0 !important;
-
   padding: 0 !important;
 
   display: grid !important;
 
-  grid-template-columns:
-    minmax(0, 1fr)
-    minmax(0, 1.05fr)
-    minmax(0, 1.35fr) !important;
-
-  gap: 8px !important;
-
   align-items: start !important;
+
+  gap: 12px !important;
 
   box-sizing: border-box !important;
 }
 
 
-/* When only level 1 exists */
+/* Level 1 */
+
 .eye-condition-mega-menu-level-1
 .eye-condition-menu-inner {
-  grid-template-columns: 1fr !important;
+  grid-template-columns: minmax(0, 1fr) !important;
 }
 
 
-/* When level 2 exists */
+/* Level 2 */
+
 .eye-condition-mega-menu-level-2
 .eye-condition-menu-inner {
   grid-template-columns:
-    minmax(0, 0.85fr)
+    minmax(0, 0.92fr)
     minmax(0, 1fr) !important;
 }
 
 
-/* When level 3 exists */
+/* Level 3 */
+
 .eye-condition-mega-menu-level-3
 .eye-condition-menu-inner {
   grid-template-columns:
-    minmax(0, 0.80fr)
-    minmax(0, 0.90fr)
-    minmax(0, 1.20fr) !important;
+    minmax(0, 0.88fr)
+    minmax(0, 1fr)
+    minmax(0, 1.32fr) !important;
 }
 
 
 /* =========================================================
-   CARD
+   WHITE INNER CARDS
+
+   All cards begin at the exact same top edge.
 ========================================================= */
 
 .eye-condition-menu-card {
   width: 100% !important;
-
   min-width: 0 !important;
 
   height: auto !important;
-
   min-height: 0 !important;
-
   max-height: none !important;
 
   margin: 0 !important;
-
-  padding: 12px !important;
+  padding: 16px !important;
 
   box-sizing: border-box !important;
 
   background: #ffffff !important;
 
-  border-radius: 15px !important;
+  border: 1px solid #e9ebef !important;
+  border-radius: 16px !important;
 
-  overflow: hidden !important;
+  box-shadow:
+    0 2px 7px rgba(26, 35, 64, 0.035) !important;
+
+  overflow: visible !important;
 }
 
 
 /* =========================================================
-   SMALL ENTRY ANIMATION
+   CARD ENTRY ANIMATION
 ========================================================= */
 
 .eye-condition-enter {
@@ -2081,16 +2131,12 @@ a {
 @keyframes eyeConditionSlideIn {
   from {
     opacity: 0;
-
-    transform:
-      translateX(-5px);
+    transform: translateY(4px);
   }
 
   to {
     opacity: 1;
-
-    transform:
-      translateX(0);
+    transform: translateY(0);
   }
 }
 
@@ -2102,9 +2148,7 @@ a {
 .eye-condition-menu-heading {
   display: block !important;
 
-  margin:
-    0 0 5px 0 !important;
-
+  margin: 0 0 5px 0 !important;
   padding: 0 !important;
 
   color: #a51c30 !important;
@@ -2114,30 +2158,50 @@ a {
     sans-serif !important;
 
   font-size: 14px !important;
-
   font-weight: 700 !important;
-
   line-height: 1.2 !important;
 
   letter-spacing: 0 !important;
+
+  text-transform: uppercase !important;
 }
 
 
 /* =========================================================
-   ITEMS
+   HELPER TEXT
+========================================================= */
+
+.eye-condition-menu-helper {
+  display: block !important;
+
+  margin: 0 0 10px 0 !important;
+  padding: 0 !important;
+
+  color: #1a2340 !important;
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif !important;
+
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  line-height: 1.35 !important;
+}
+
+
+/* =========================================================
+   ITEMS CONTAINER
 ========================================================= */
 
 .eye-condition-items {
   width: 100% !important;
 
   display: flex !important;
-
   flex-direction: column !important;
 
-  gap: 0 !important;
+  gap: 2px !important;
 
   margin: 0 !important;
-
   padding: 0 !important;
 }
 
@@ -2148,32 +2212,24 @@ a {
 
 .eye-condition-item {
   width: 100% !important;
-
   min-width: 0 !important;
 
-  height: 32px !important;
-
-  min-height: 32px !important;
-
-  max-height: 32px !important;
+  height: 34px !important;
+  min-height: 34px !important;
+  max-height: 34px !important;
 
   display: flex !important;
-
   align-items: center !important;
-
   justify-content: space-between !important;
 
-  gap: 6px !important;
+  gap: 8px !important;
 
   margin: 0 !important;
-
-  padding:
-    0 7px !important;
+  padding: 0 9px !important;
 
   box-sizing: border-box !important;
 
   border: 0 !important;
-
   border-radius: 9px !important;
 
   background: transparent !important;
@@ -2185,9 +2241,7 @@ a {
     sans-serif !important;
 
   font-size: 12px !important;
-
   font-weight: 600 !important;
-
   line-height: 1.2 !important;
 
   text-align: left !important;
@@ -2198,14 +2252,39 @@ a {
 
   transition:
     background 0.15s ease,
-    color 0.15s ease !important;
+    color 0.15s ease,
+    padding-left 0.15s ease !important;
+}
+
+.eye-condition-item span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.eye-condition-item svg {
+  width: 16px !important;
+  height: 16px !important;
+  flex-shrink: 0 !important;
+
+  color: #1a2340 !important;
+
+  transition:
+    color 0.15s ease,
+    transform 0.15s ease !important;
 }
 
 .eye-condition-item:hover,
 .eye-condition-item.active {
   background: #eaf3ff !important;
-
   color: #3774be !important;
+}
+
+.eye-condition-item:hover svg,
+.eye-condition-item.active svg {
+  color: #3774be !important;
+  transform: translateX(2px) !important;
 }
 
 
@@ -2215,30 +2294,23 @@ a {
 
 .eye-condition-specific-item {
   width: 100% !important;
-
   min-width: 0 !important;
 
-  min-height: 32px !important;
-
+  min-height: 34px !important;
   height: auto !important;
 
   display: flex !important;
-
   align-items: center !important;
-
   justify-content: space-between !important;
 
-  gap: 6px !important;
+  gap: 10px !important;
 
   margin: 0 !important;
-
-  padding:
-    5px 7px !important;
+  padding: 7px 9px !important;
 
   box-sizing: border-box !important;
 
   border: 0 !important;
-
   border-radius: 9px !important;
 
   background: transparent !important;
@@ -2250,10 +2322,8 @@ a {
     sans-serif !important;
 
   font-size: 12px !important;
-
   font-weight: 600 !important;
-
-  line-height: 1.3 !important;
+  line-height: 1.4 !important;
 
   text-align: left !important;
 
@@ -2264,9 +2334,24 @@ a {
     color 0.15s ease !important;
 }
 
+.eye-condition-specific-item span {
+  min-width: 0;
+}
+
+.eye-condition-specific-item svg {
+  width: 16px !important;
+  height: 16px !important;
+  flex-shrink: 0 !important;
+
+  color: #1a2340 !important;
+}
+
 .eye-condition-specific-item:hover {
   background: #eaf3ff !important;
+  color: #3774be !important;
+}
 
+.eye-condition-specific-item:hover svg {
   color: #3774be !important;
 }
 
@@ -2277,14 +2362,11 @@ a {
 
 .eye-condition-treatment-info {
   margin: 0 !important;
-
-  padding:
-    2px 7px !important;
+  padding: 2px 7px !important;
 }
 
 .eye-condition-treatment-info p {
   margin: 0 !important;
-
   padding: 0 !important;
 
   color: #4b5563 !important;
@@ -2294,8 +2376,7 @@ a {
     sans-serif !important;
 
   font-size: 12px !important;
-
-  line-height: 1.45 !important;
+  line-height: 1.5 !important;
 }
 
 
@@ -2305,18 +2386,14 @@ a {
 
 .eye-condition-learn-more {
   display: inline-flex !important;
-
   align-items: center !important;
 
-  gap: 3px !important;
+  gap: 4px !important;
 
-  margin:
-    8px 0 0 7px !important;
-
+  margin: 10px 0 0 7px !important;
   padding: 0 !important;
 
   border: 0 !important;
-
   background: transparent !important;
 
   color: #a51c30 !important;
@@ -2326,10 +2403,11 @@ a {
     sans-serif !important;
 
   font-size: 12px !important;
-
   font-weight: 700 !important;
 
   cursor: pointer !important;
+
+  transition: color 0.15s ease !important;
 }
 
 .eye-condition-learn-more:hover {
@@ -2338,24 +2416,34 @@ a {
 
 
 /* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.eye-condition-nav-button:focus-visible,
+.eye-condition-item:focus-visible,
+.eye-condition-specific-item:focus-visible,
+.eye-condition-learn-more:focus-visible {
+  outline: 2px solid #3774be !important;
+  outline-offset: 2px !important;
+}
+
+
+/* =========================================================
    MEDIUM DESKTOP
 ========================================================= */
 
 @media (min-width: 1001px) and (max-width: 1399px) {
-
   .eye-condition-mega-menu-level-1 {
-    width: 290px !important;
+    width: 300px !important;
   }
 
   .eye-condition-mega-menu-level-2 {
-    width: 600px !important;
+    width: min(760px, calc(100vw - 36px)) !important;
   }
 
   .eye-condition-mega-menu-level-3 {
-    width:
-      min(930px, calc(100vw - 36px)) !important;
+    width: min(1120px, calc(100vw - 36px)) !important;
   }
-
 }
 
 
@@ -2364,48 +2452,47 @@ a {
 ========================================================= */
 
 @media (max-width: 1000px) {
-
   .eye-condition-nav-button {
-    font-size: 21px !important;
+    font-size: 15px !important;
   }
 
-  .eye-condition-mega-menu-level-1,
+  .eye-condition-mega-menu-level-1 {
+    left: 10px !important;
+    width: calc(100vw - 30px) !important;
+  }
+
   .eye-condition-mega-menu-level-2,
   .eye-condition-mega-menu-level-3 {
-    top: 65px !important;
+    left: 50% !important;
+    width: calc(100vw - 30px) !important;
+    max-width: calc(100vw - 30px) !important;
 
-    width:
-      calc(100vw - 30px) !important;
-
-    max-width:
-      calc(100vw - 30px) !important;
-
-    max-height:
-      calc(100vh - 75px) !important;
+    max-height: calc(100vh - 80px) !important;
 
     overflow-y: auto !important;
 
-    padding: 14px !important;
+    padding: 12px !important;
+
+    border-radius: 16px !important;
   }
 
-  .eye-condition-mega-menu-level-1
-  .eye-condition-menu-inner,
-  .eye-condition-mega-menu-level-2
-  .eye-condition-menu-inner,
-  .eye-condition-mega-menu-level-3
-  .eye-condition-menu-inner {
-    grid-template-columns:
-      1fr 1fr !important;
-
-    gap: 8px !important;
+  .eye-condition-mega-menu-level-1 {
+    transform: translateY(7px) !important;
   }
 
-  .eye-condition-mega-menu-level-3
-  .eye-condition-menu-card:nth-child(3) {
-    grid-column:
-      1 / -1 !important;
+  .eye-condition-mega-menu-level-1.eye-condition-mega-menu-open {
+    transform: translateY(0) !important;
   }
 
+  .eye-condition-mega-menu-level-2,
+  .eye-condition-mega-menu-level-3 {
+    transform: translateX(-50%) translateY(7px) !important;
+  }
+
+  .eye-condition-mega-menu-level-2.eye-condition-mega-menu-open,
+  .eye-condition-mega-menu-level-3.eye-condition-mega-menu-open {
+    transform: translateX(-50%) translateY(0) !important;
+  }
 }
 
 
@@ -2414,38 +2501,117 @@ a {
 ========================================================= */
 
 @media (max-width: 700px) {
-
   .eye-condition-nav-button {
-    font-size: 19px !important;
+    font-size: 14px !important;
+  }
+
+  .eye-condition-mega-menu-level-1 {
+    left: 10px !important;
+    width: calc(100vw - 20px) !important;
+  }
+
+  .eye-condition-mega-menu-level-2,
+  .eye-condition-mega-menu-level-3 {
+    left: 50% !important;
+    width: calc(100vw - 20px) !important;
+    max-width: calc(100vw - 20px) !important;
+
+    max-height: calc(100vh - 70px) !important;
+
+    padding: 10px !important;
+
+    border-radius: 14px !important;
   }
 
   .eye-condition-mega-menu-level-1,
   .eye-condition-mega-menu-level-2,
-  .eye-condition-mega-menu-level-3 {
-    top: 60px !important;
-
-    width:
-      calc(100vw - 20px) !important;
-
-    max-width:
-      calc(100vw - 20px) !important;
-
-    max-height:
-      calc(100vh - 70px) !important;
-
-    padding: 12px !important;
+  .eye-condition-mega-menu-level-3,
+  .eye-condition-mega-menu-level-2.eye-condition-mega-menu-open,
+  .eye-condition-mega-menu-level-3.eye-condition-mega-menu-open {
+    transform: translateY(7px) !important;
   }
 
-  .eye-condition-mega-menu-level-1
-  .eye-condition-menu-inner,
-  .eye-condition-mega-menu-level-2
-  .eye-condition-menu-inner,
-  .eye-condition-mega-menu-level-3
-  .eye-condition-menu-inner {
-    grid-template-columns:
-      1fr !important;
+  .eye-condition-mega-menu-open {
+    transform: translateY(0) !important;
+  }
 
+  .eye-condition-menu-inner,
+  .eye-condition-mega-menu-level-2 .eye-condition-menu-inner,
+  .eye-condition-mega-menu-level-3 .eye-condition-menu-inner {
+    grid-template-columns: 1fr !important;
     gap: 8px !important;
   }
 
+  .eye-condition-menu-card {
+    padding: 13px !important;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .eye-condition-mega-menu,
+  .eye-condition-nav-chevron,
+  .eye-condition-item,
+  .eye-condition-item svg,
+  .eye-condition-specific-item,
+  .eye-condition-learn-more {
+    transition: none !important;
+  }
+
+  .eye-condition-enter {
+    animation: none !important;
+  }
+}
+
+/* =========================================================
+   EYE CONDITIONS - FINAL POSITIONING OVERRIDES
+   ========================================================= */
+.eye-condition-mega-menu {
+  top: var(--eye-condition-menu-top) !important;
+  box-sizing: border-box !important;
+}
+
+.eye-condition-mega-menu-level-1 {
+  left: var(--eye-condition-menu-left) !important;
+  transform: translateY(6px) !important;
+}
+
+.eye-condition-mega-menu-level-1.eye-condition-mega-menu-open {
+  transform: translateY(0) !important;
+}
+
+.eye-condition-mega-menu-level-2,
+.eye-condition-mega-menu-level-3 {
+  left: 50% !important;
+  transform: translateX(-50%) translateY(6px) !important;
+}
+
+.eye-condition-mega-menu-level-2.eye-condition-mega-menu-open,
+.eye-condition-mega-menu-level-3.eye-condition-mega-menu-open {
+  transform: translateX(-50%) translateY(0) !important;
+}
+
+.eye-condition-mega-menu-level-1 .eye-condition-menu-inner {
+  grid-template-columns: 1fr !important;
+}
+
+.eye-condition-mega-menu-level-2 .eye-condition-menu-inner {
+  grid-template-columns: minmax(0, .92fr) minmax(0, 1fr) !important;
+  gap: 12px !important;
+}
+
+.eye-condition-mega-menu-level-3 .eye-condition-menu-inner {
+  grid-template-columns: minmax(0, .88fr) minmax(0, 1fr) minmax(0, 1.32fr) !important;
+  gap: 12px !important;
+}
+
+.eye-condition-menu-card {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  align-self: start !important;
 }

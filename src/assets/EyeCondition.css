@@ -1,38 +1,56 @@
 /* =========================================================
-   EYE CONDITIONS WE TREAT
-   Progressive hover + click menu
-   The menu is positioned from the actual nav button's
-   viewport coordinates, so it can ONLY start underneath
-   the Eye Conditions We Treat navigation item.
-   ========================================================= */
+   EYE CONDITIONS NAV ITEM
+========================================================= */
 
 .eye-condition-nav-item {
-  position: relative !important;
+  position: static !important;
   height: 100% !important;
+
   display: flex !important;
   align-items: center !important;
+
   flex-shrink: 0 !important;
-  z-index: 1000 !important;
+
+  z-index: 999999 !important;
 }
+
+
+/* =========================================================
+   NAV BUTTON
+========================================================= */
 
 .eye-condition-nav-button {
   appearance: none !important;
+
+  height: 100% !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
+
   gap: 7px !important;
-  height: 100% !important;
-  padding: 0 !important;
-  margin: 0 !important;
+
   border: 0 !important;
   outline: 0 !important;
+
   background: transparent !important;
+
   color: #111827 !important;
-  font-family: "Plus Jakarta Sans", sans-serif !important;
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif !important;
+
   font-size: 18px !important;
   font-weight: 700 !important;
+
   line-height: 1 !important;
+
   white-space: nowrap !important;
+
   cursor: pointer !important;
 }
 
@@ -43,223 +61,440 @@
 
 .eye-condition-nav-chevron {
   flex-shrink: 0 !important;
-  transition: transform 0.2s ease !important;
+
+  transition:
+    transform 0.2s ease !important;
 }
 
 .eye-condition-nav-chevron-open {
   transform: rotate(180deg) !important;
 }
 
-/* =========================================================
-   MENU POSITION
-   IMPORTANT:
-   This menu uses position: fixed because the exact position
-   is supplied from the Eye Conditions button in JSX.
-   This prevents any App.css / parent positioning rule from
-   moving the menu underneath Treatments or the center.
-   ========================================================= */
 
-.eye-condition-nav-item .eye-condition-mega-menu {
+/* =========================================================
+   MAIN MEGA MENU
+
+   IMPORTANT:
+   +18px is added HERE.
+   Do not add +18px in JSX.
+========================================================= */
+
+.eye-condition-nav-item
+.eye-condition-mega-menu {
+
   position: fixed !important;
-  top: 0;
-  left: 0;
+
+  top:
+    var(--eye-condition-menu-top) !important;
+
+  left:
+    var(--eye-condition-menu-left) !important;
+
   right: auto !important;
+  bottom: auto !important;
 
   margin: 0 !important;
+
   box-sizing: border-box !important;
 
-  padding: 12px !important;
+  padding: 14px !important;
 
   background: #f4f5f7 !important;
-  border-radius: 0 0 18px 18px !important;
-  box-shadow: 0 15px 40px rgba(15, 23, 42, 0.14) !important;
+
+  border:
+    1px solid #e5e7eb !important;
+
+  border-radius:
+    0 0 20px 20px !important;
+
+  box-shadow:
+    0 18px 45px
+    rgba(15, 23, 42, 0.16) !important;
 
   opacity: 0 !important;
+
   visibility: hidden !important;
+
   pointer-events: none !important;
 
-  transform: translateY(7px) !important;
+  transform:
+    translateY(8px) !important;
 
   transition:
     opacity 0.18s ease,
     visibility 0.18s ease,
     transform 0.18s ease !important;
 
-  z-index: 99999 !important;
+  z-index: 9999999 !important;
+
+  max-height:
+    calc(
+      100vh - var(--eye-condition-menu-top) - 16px
+    ) !important;
+
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
 }
 
-.eye-condition-nav-item .eye-condition-mega-menu-open {
-  opacity: 1 !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
-  transform: translateY(0) !important;
-}
 
 /* =========================================================
-   PROGRESSIVE WIDTHS
-   ========================================================= */
+   OPEN MENU
+========================================================= */
+
+.eye-condition-nav-item
+.eye-condition-mega-menu-open {
+
+  opacity: 1 !important;
+
+  visibility: visible !important;
+
+  pointer-events: auto !important;
+
+  transform:
+    translateY(0) !important;
+}
+
+
+/* =========================================================
+   LEVEL 1
+   DIRECTLY BELOW EYE CONDITIONS BUTTON
+========================================================= */
 
 .eye-condition-mega-menu-level-1 {
-  width: 300px !important;
-  max-width: calc(100vw - 40px) !important;
+
+  width: 380px !important;
+
+  max-width:
+    calc(100vw - 40px) !important;
 }
 
-.eye-condition-mega-menu-level-2 {
-  width: 640px !important;
-  max-width: calc(100vw - 40px) !important;
-}
-
-.eye-condition-mega-menu-level-3 {
-  width: 980px !important;
-  max-width: calc(100vw - 40px) !important;
-}
 
 /* =========================================================
-   GRID
-   ========================================================= */
+   LEVEL 2
+   CENTERED
+========================================================= */
+
+.eye-condition-mega-menu-level-2 {
+
+  left: 50% !important;
+
+  right: auto !important;
+
+  width: 820px !important;
+
+  max-width:
+    calc(100vw - 50px) !important;
+
+  transform:
+    translateX(-50%)
+    translateY(8px) !important;
+}
+
+
+.eye-condition-mega-menu-level-2
+.eye-condition-mega-menu-open {
+
+  transform:
+    translateX(-50%)
+    translateY(0) !important;
+}
+
+
+/* =========================================================
+   LEVEL 3
+   CENTERED LARGE PANEL
+========================================================= */
+
+.eye-condition-mega-menu-level-3 {
+
+  left: 50% !important;
+
+  right: auto !important;
+
+  width:
+    min(
+      1400px,
+      calc(100vw - 40px)
+    ) !important;
+
+  max-width:
+    calc(100vw - 40px) !important;
+
+  transform:
+    translateX(-50%)
+    translateY(8px) !important;
+}
+
+
+.eye-condition-mega-menu-level-3
+.eye-condition-mega-menu-open {
+
+  transform:
+    translateX(-50%)
+    translateY(0) !important;
+}
+
+
+/* =========================================================
+   INNER GRID
+========================================================= */
 
 .eye-condition-menu-inner {
+
   width: 100% !important;
+
   height: auto !important;
+
   min-height: 0 !important;
+
   margin: 0 !important;
   padding: 0 !important;
 
   display: grid !important;
-  gap: 8px !important;
+
   align-items: start !important;
+
+  gap: 10px !important;
 
   box-sizing: border-box !important;
 }
 
-.eye-condition-mega-menu-level-1 .eye-condition-menu-inner {
-  grid-template-columns: 1fr !important;
-}
 
-.eye-condition-mega-menu-level-2 .eye-condition-menu-inner {
+/* =========================================================
+   LEVEL 1 GRID
+========================================================= */
+
+.eye-condition-mega-menu-level-1
+.eye-condition-menu-inner {
+
   grid-template-columns:
-    minmax(0, 0.85fr)
     minmax(0, 1fr) !important;
 }
 
-.eye-condition-mega-menu-level-3 .eye-condition-menu-inner {
-  grid-template-columns:
-    minmax(0, 0.80fr)
-    minmax(0, 0.90fr)
-    minmax(0, 1.20fr) !important;
-}
 
 /* =========================================================
-   CARDS
-   ========================================================= */
+   LEVEL 2 GRID
+========================================================= */
+
+.eye-condition-mega-menu-level-2
+.eye-condition-menu-inner {
+
+  grid-template-columns:
+    minmax(0, 0.92fr)
+    minmax(0, 1fr) !important;
+}
+
+
+/* =========================================================
+   LEVEL 3 GRID
+========================================================= */
+
+.eye-condition-mega-menu-level-3
+.eye-condition-menu-inner {
+
+  grid-template-columns:
+    minmax(0, 0.88fr)
+    minmax(0, 1fr)
+    minmax(0, 1.33fr) !important;
+}
+
+
+/* =========================================================
+   WHITE CARDS
+========================================================= */
 
 .eye-condition-menu-card {
+
   width: 100% !important;
+
   min-width: 0 !important;
+
   height: auto !important;
+
   min-height: 0 !important;
+
   max-height: none !important;
+
+  align-self: start !important;
+
   margin: 0 !important;
-  padding: 12px !important;
+
+  padding:
+    16px 18px 16px !important;
+
   box-sizing: border-box !important;
 
   background: #ffffff !important;
-  border-radius: 15px !important;
-  overflow: hidden !important;
+
+  border:
+    1px solid #e8ebef !important;
+
+  border-radius: 16px !important;
+
+  overflow: visible !important;
 }
+
 
 /* =========================================================
-   ENTRY ANIMATION
-   ========================================================= */
+   LEVEL 3 CARD HEIGHT
+========================================================= */
 
-.eye-condition-enter {
-  animation: eyeConditionSlideIn 0.18s ease both !important;
+.eye-condition-mega-menu-level-3
+.eye-condition-menu-card {
+
+  min-height: 300px !important;
 }
 
-@keyframes eyeConditionSlideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-5px);
-  }
 
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.eye-condition-mega-menu-level-3
+.eye-condition-menu-card:first-child {
+
+  min-height: 390px !important;
 }
+
+
+.eye-condition-mega-menu-level-3
+.eye-condition-menu-card:nth-child(2) {
+
+  min-height: 180px !important;
+}
+
+
+.eye-condition-mega-menu-level-3
+.eye-condition-menu-card:nth-child(3) {
+
+  min-height: 255px !important;
+}
+
 
 /* =========================================================
    HEADINGS
-   ========================================================= */
+========================================================= */
 
 .eye-condition-menu-heading {
+
   display: block !important;
-  margin: 0 0 2px 0 !important;
+
+  margin:
+    0 0 4px 0 !important;
+
   padding: 0 !important;
 
   color: #a51c30 !important;
-  font-family: "Plus Jakarta Sans", sans-serif !important;
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif !important;
+
   font-size: 14px !important;
+
   font-weight: 700 !important;
-  line-height: 1.2 !important;
-  letter-spacing: 0 !important;
+
+  line-height: 1.25 !important;
+
+  text-transform: uppercase !important;
 }
+
 
 /* =========================================================
    HELPER TEXT
-   ========================================================= */
+========================================================= */
 
 .eye-condition-menu-helper {
+
   display: block !important;
-  margin: 0 0 6px 0 !important;
+
+  margin:
+    0 0 8px 0 !important;
+
   padding: 0 !important;
 
   color: #6b7280 !important;
-  font-family: "Plus Jakarta Sans", sans-serif !important;
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif !important;
+
   font-size: 10px !important;
+
   font-weight: 500 !important;
-  line-height: 1.2 !important;
+
+  line-height: 1.3 !important;
 }
 
+
 /* =========================================================
-   ITEMS
-   ========================================================= */
+   ITEMS CONTAINER
+========================================================= */
 
 .eye-condition-items {
+
   width: 100% !important;
+
   display: flex !important;
+
   flex-direction: column !important;
-  gap: 0 !important;
+
+  gap: 1px !important;
+
   margin: 0 !important;
   padding: 0 !important;
 }
 
-.eye-condition-item,
-.eye-condition-specific-item {
-  width: 100% !important;
-  min-width: 0 !important;
-  min-height: 32px !important;
-  height: auto !important;
 
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  gap: 6px !important;
+/* =========================================================
+   CONDITION / TREATMENT ITEM
+========================================================= */
+
+.eye-condition-item {
+
+  appearance: none !important;
+
+  width: 100% !important;
+
+  min-width: 0 !important;
+
+  height: 36px !important;
+
+  min-height: 36px !important;
+
+  max-height: 36px !important;
 
   margin: 0 !important;
-  padding: 5px 7px !important;
+
+  padding:
+    0 9px !important;
+
   box-sizing: border-box !important;
 
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: space-between !important;
+
+  gap: 8px !important;
+
   border: 0 !important;
-  border-radius: 9px !important;
+
+  border-radius: 10px !important;
+
   background: transparent !important;
+
   color: #1a2340 !important;
 
-  font-family: "Plus Jakarta Sans", sans-serif !important;
-  font-size: 12px !important;
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif !important;
+
+  font-size: 13px !important;
+
   font-weight: 600 !important;
-  line-height: 1.3 !important;
+
+  line-height: 1.2 !important;
+
   text-align: left !important;
+
   cursor: pointer !important;
 
   transition:
@@ -267,135 +502,494 @@
     color 0.15s ease !important;
 }
 
+
+/* =========================================================
+   ITEM TEXT
+========================================================= */
+
+.eye-condition-item span {
+
+  min-width: 0 !important;
+
+  overflow: hidden !important;
+
+  text-overflow: ellipsis !important;
+
+  white-space: nowrap !important;
+}
+
+
+/* =========================================================
+   ITEM ARROW
+========================================================= */
+
+.eye-condition-item svg {
+
+  flex-shrink: 0 !important;
+
+  color: #1a2340 !important;
+
+  transition:
+    color 0.15s ease,
+    transform 0.15s ease !important;
+}
+
+
+/* =========================================================
+   HOVER / ACTIVE
+========================================================= */
+
 .eye-condition-item:hover,
-.eye-condition-item.active,
+.eye-condition-item.active {
+
+  background:
+    #eaf3ff !important;
+
+  color:
+    #3774be !important;
+}
+
+
+.eye-condition-item:hover svg,
+.eye-condition-item.active svg {
+
+  color:
+    #3774be !important;
+
+  transform:
+    translateX(2px) !important;
+}
+
+
+/* =========================================================
+   SPECIFIC CONDITION ITEM
+========================================================= */
+
+.eye-condition-specific-item {
+
+  appearance: none !important;
+
+  width: 100% !important;
+
+  min-width: 0 !important;
+
+  min-height: 36px !important;
+
+  margin: 0 !important;
+
+  padding:
+    6px 9px !important;
+
+  box-sizing: border-box !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: space-between !important;
+
+  gap: 8px !important;
+
+  border: 0 !important;
+
+  border-radius: 9px !important;
+
+  background: transparent !important;
+
+  color: #1a2340 !important;
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif !important;
+
+  font-size: 12px !important;
+
+  font-weight: 600 !important;
+
+  line-height: 1.35 !important;
+
+  text-align: left !important;
+
+  cursor: pointer !important;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease !important;
+}
+
+
 .eye-condition-specific-item:hover {
-  background: #eaf3ff !important;
-  color: #3774be !important;
+
+  background:
+    #eaf3ff !important;
+
+  color:
+    #3774be !important;
+}
+
+
+.eye-condition-specific-item svg {
+
+  flex-shrink: 0 !important;
+}
+
+
+/* =========================================================
+   TREATMENT INFORMATION
+========================================================= */
+
+.eye-condition-treatment-info {
+
+  margin: 0 !important;
+
+  padding:
+    4px 9px !important;
+}
+
+
+.eye-condition-treatment-info p {
+
+  margin: 0 !important;
+
+  padding: 0 !important;
+
+  color:
+    #4b5563 !important;
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif !important;
+
+  font-size: 12px !important;
+
+  line-height: 1.5 !important;
+}
+
+
+/* =========================================================
+   LEARN MORE
+========================================================= */
+
+.eye-condition-learn-more {
+
+  appearance: none !important;
+
+  display: inline-flex !important;
+
+  align-items: center !important;
+
+  gap: 4px !important;
+
+  margin:
+    12px 0 0 0 !important;
+
+  padding: 0 !important;
+
+  border: 0 !important;
+
+  background: transparent !important;
+
+  color:
+    #a51c30 !important;
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif !important;
+
+  font-size: 12px !important;
+
+  font-weight: 700 !important;
+
+  cursor: pointer !important;
+}
+
+
+.eye-condition-learn-more:hover {
+
+  color:
+    #3774be !important;
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+.eye-condition-enter {
+
+  animation:
+    eyeConditionSlideIn
+    0.18s
+    ease
+    both !important;
+}
+
+
+@keyframes eyeConditionSlideIn {
+
+  from {
+
+    opacity: 0;
+
+    transform:
+      translateX(-5px);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform:
+      translateX(0);
+
+  }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.eye-condition-nav-button:focus-visible,
+.eye-condition-item:focus-visible,
+.eye-condition-specific-item:focus-visible,
+.eye-condition-learn-more:focus-visible {
+
+  outline:
+    2px solid #3774be !important;
+
+  outline-offset:
+    2px !important;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .eye-condition-mega-menu-level-3 {
+
+    width:
+      calc(100vw - 32px) !important;
+
+    max-width:
+      calc(100vw - 32px) !important;
+
+  }
+
+}
+
+
+/* =========================================================
+   SMALL DESKTOP / TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .eye-condition-mega-menu-level-2,
+  .eye-condition-mega-menu-level-3 {
+
+    width:
+      calc(100vw - 24px) !important;
+
+    max-width:
+      calc(100vw - 24px) !important;
+
+  }
+
+
+  .eye-condition-mega-menu-level-3
+  .eye-condition-menu-inner {
+
+    grid-template-columns:
+      minmax(0, 0.9fr)
+      minmax(0, 1fr)
+      minmax(0, 1.15fr) !important;
+
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .eye-condition-nav-button {
+
+    font-size:
+      16px !important;
+
+  }
+
+
+  .eye-condition-mega-menu-level-1 {
+
+    width:
+      280px !important;
+
+  }
+
+
+  .eye-condition-mega-menu-level-2,
+  .eye-condition-mega-menu-level-3 {
+
+    left:
+      8px !important;
+
+    width:
+      calc(100vw - 16px) !important;
+
+    max-width:
+      calc(100vw - 16px) !important;
+
+    transform:
+      translateY(8px) !important;
+
+  }
+
+
+  .eye-condition-mega-menu-level-2
+  .eye-condition-menu-inner,
+
+  .eye-condition-mega-menu-level-3
+  .eye-condition-menu-inner {
+
+    grid-template-columns:
+      1fr !important;
+
+  }
+
+
+  .eye-condition-mega-menu-level-2
+  .eye-condition-mega-menu-open,
+
+  .eye-condition-mega-menu-level-3
+  .eye-condition-mega-menu-open {
+
+    transform:
+      translateY(0) !important;
+
+  }
+
+
+  .eye-condition-mega-menu-level-3
+  .eye-condition-menu-card {
+
+    min-height:
+      0 !important;
+
+  }
+
+}
+
+
+/* =========================================================
+   FINAL VIEWPORT-SAFE MENU LAYOUT
+========================================================= */
+
+.eye-condition-nav-item .eye-condition-mega-menu {
+  transform:
+    translateY(8px) !important;
+}
+
+.eye-condition-nav-item .eye-condition-mega-menu-open {
+
+  transform:
+    translateY(0) !important;
+}
+
+.eye-condition-nav-item
+.eye-condition-mega-menu-level-1 {
+
+  left: var(--eye-condition-menu-left) !important;
+
+  width: 310px !important;
+  max-width: calc(100vw - 32px) !important;
+
+  transform: translateY(8px) !important;
+}
+
+.eye-condition-nav-item
+.eye-condition-mega-menu-level-1.eye-condition-mega-menu-open {
+
+  transform: translateY(0) !important;
+}
+
+.eye-condition-nav-item
+.eye-condition-mega-menu-level-2 {
+
+  width: min(820px, calc(100vw - 32px)) !important;
+  max-width: calc(100vw - 32px) !important;
+}
+
+.eye-condition-nav-item
+.eye-condition-mega-menu-level-3 {
+
+  left: 50% !important;
+
+  width: min(1120px, calc(100vw - 48px)) !important;
+  max-width: calc(100vw - 48px) !important;
+
+  transform:
+    translateX(-50%)
+    translateY(8px) !important;
+}
+
+.eye-condition-nav-item
+.eye-condition-mega-menu-level-3.eye-condition-mega-menu-open {
+
+  transform:
+    translateX(-50%)
+    translateY(0) !important;
+}
+
+.eye-condition-menu-inner {
+
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+.eye-condition-mega-menu-level-3
+.eye-condition-menu-inner {
+
+  grid-template-columns:
+    minmax(0, 0.9fr)
+    minmax(0, 1fr)
+    minmax(0, 1.1fr) !important;
+}
+
+.eye-condition-item {
+
+  height: auto !important;
+  min-height: 36px !important;
+  max-height: none !important;
+}
+
+.eye-condition-item span,
+.eye-condition-specific-item span {
+
+  min-width: 0 !important;
+  max-width: 100% !important;
+  overflow: visible !important;
+  overflow-wrap: anywhere !important;
+  white-space: normal !important;
+}
+
+.eye-condition-specific-item {
+
+  min-width: 0 !important;
+  max-width: 100% !important;
 }
 
 .eye-condition-item svg,
 .eye-condition-specific-item svg {
-  flex-shrink: 0 !important;
-}
 
-/* =========================================================
-   DESCRIPTION
-   ========================================================= */
-
-.eye-condition-treatment-info {
-  margin: 0 !important;
-  padding: 2px 7px !important;
-}
-
-.eye-condition-treatment-info p {
-  margin: 0 !important;
-  padding: 0 !important;
-  color: #4b5563 !important;
-  font-family: "Plus Jakarta Sans", sans-serif !important;
-  font-size: 12px !important;
-  line-height: 1.45 !important;
-}
-
-/* =========================================================
-   LEARN MORE
-   ========================================================= */
-
-.eye-condition-learn-more {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 3px !important;
-
-  margin: 8px 0 0 7px !important;
-  padding: 0 !important;
-
-  border: 0 !important;
-  background: transparent !important;
-  color: #a51c30 !important;
-
-  font-family: "Plus Jakarta Sans", sans-serif !important;
-  font-size: 12px !important;
-  font-weight: 700 !important;
-  cursor: pointer !important;
-}
-
-.eye-condition-learn-more:hover {
-  color: #3774be !important;
-}
-
-/* =========================================================
-   MEDIUM DESKTOP
-   ========================================================= */
-
-@media (min-width: 1001px) and (max-width: 1399px) {
-  .eye-condition-mega-menu-level-1 {
-    width: 290px !important;
-  }
-
-  .eye-condition-mega-menu-level-2 {
-    width: 600px !important;
-  }
-
-  .eye-condition-mega-menu-level-3 {
-    width: min(930px, calc(100vw - 36px)) !important;
-  }
-}
-
-/* =========================================================
-   TABLET
-   ========================================================= */
-
-@media (max-width: 1000px) {
-  .eye-condition-nav-button {
-    font-size: 15px !important;
-  }
-
-  .eye-condition-nav-item .eye-condition-mega-menu-level-1,
-  .eye-condition-nav-item .eye-condition-mega-menu-level-2,
-  .eye-condition-nav-item .eye-condition-mega-menu-level-3 {
-    max-width: calc(100vw - 30px) !important;
-    max-height: calc(100vh - 75px) !important;
-    overflow-y: auto !important;
-    padding: 14px !important;
-  }
-
-  .eye-condition-mega-menu-level-1 .eye-condition-menu-inner,
-  .eye-condition-mega-menu-level-2 .eye-condition-menu-inner,
-  .eye-condition-mega-menu-level-3 .eye-condition-menu-inner {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 8px !important;
-  }
-
-  .eye-condition-mega-menu-level-3 .eye-condition-menu-card:nth-child(3) {
-    grid-column: 1 / -1 !important;
-  }
-}
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 700px) {
-  .eye-condition-nav-button {
-    font-size: 19px !important;
-  }
-
-  .eye-condition-nav-item .eye-condition-mega-menu-level-1,
-  .eye-condition-nav-item .eye-condition-mega-menu-level-2,
-  .eye-condition-nav-item .eye-condition-mega-menu-level-3 {
-    max-width: calc(100vw - 20px) !important;
-    max-height: calc(100vh - 70px) !important;
-    padding: 12px !important;
-  }
-
-  .eye-condition-mega-menu-level-1 .eye-condition-menu-inner,
-  .eye-condition-mega-menu-level-2 .eye-condition-menu-inner,
-  .eye-condition-mega-menu-level-3 .eye-condition-menu-inner {
-    grid-template-columns: 1fr !important;
-    gap: 8px !important;
-  }
-
-  .eye-condition-mega-menu-level-3 .eye-condition-menu-card:nth-child(3) {
-    grid-column: auto !important;
-  }
+  flex: 0 0 auto !important;
 }
